@@ -104,8 +104,8 @@ services:
     image: neo4j:latest
     container_name: lab05-neo4j
     ports:
-      - "7474:7474"   # Browser UI
-      - "7687:7687"   # Bolt protocol
+      - "7474:7474"
+      - "7687:7687"
     environment:
       NEO4J_AUTH: neo4j/neo4jpass
     volumes:
@@ -149,29 +149,28 @@ services:
         condition: service_healthy
 
   # ── Application ──────────────────────────────────────────────
-  # app:
-  #   build: .
-  #   container_name: 55-8078_container       # Replace with your ID
-  #   ports:
-  #     - "8078:8080"                          # Replace 8078 with second part of your ID
-  #   environment:
-  #     USER_NAME: Compose_FirstName_LastName  # Replace with your name
-  #     ID: Compose_55_xxxx                    # Replace with your ID
-  #     # Override connection URLs to use Docker service names instead of localhost
-  #     SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/lab05db
-  #     SPRING_DATA_MONGODB_URI: mongodb://root:rootpass@mongo:27017/lab05mongo?authSource=admin
-  #     SPRING_DATA_REDIS_HOST: redis
-  #     SPRING_DATA_NEO4J_URI: bolt://neo4j:7687
-  #     SPRING_ELASTICSEARCH_URIS: http://elasticsearch:9200
-  #     SPRING_CASSANDRA_CONTACT-POINTS: cassandra
-  #   depends_on:
-  #     - postgres
-  #     - mongo
-  #     - redis
-  #     - cassandra
-  #     - neo4j
-  #     - elasticsearch
-  
+  app:
+    build: .
+    container_name: 55-8669_container
+    ports:
+      - "8669:8080"
+    environment:
+      USER_NAME: Ahmed_Amin
+      ID: 55-8669
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/lab05db
+      SPRING_DATA_MONGODB_URI: mongodb://root:rootpass@mongo:27017/lab05mongo?authSource=admin
+      SPRING_DATA_REDIS_HOST: redis
+      SPRING_DATA_NEO4J_URI: bolt://neo4j:7687
+      SPRING_ELASTICSEARCH_URIS: http://elasticsearch:9200
+      SPRING_CASSANDRA_CONTACT-POINTS: cassandra
+    depends_on:
+      - postgres
+      - mongo
+      - redis
+      - cassandra
+      - neo4j
+      - elasticsearch
+
 volumes:
   pg-data:
   mongo-data:
