@@ -42,5 +42,9 @@ spring:
   elasticsearch:
     uris: http://localhost:9200
 
-USER_NAME: FirstName_LastName # Replace with your name
-ID: Your_ID # Replace with your ID
+
+USER_NAME: Ahmed_Amin
+ID: 55-8669
+
+app:
+  description: "Smart E-Commerce Purchase API"
