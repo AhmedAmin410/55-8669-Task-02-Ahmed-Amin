@@ -50,7 +50,7 @@ public class PurchaseService {
             throw new RuntimeException("Insufficient stock for product: " + product.getName());
         }
         product.setStockQuantity(product.getStockQuantity() - request.quantity());
-        productService.createProduct(product);
+        productService.updateProduct(product.getId(), product);;
 
         // ── STEP 2: MongoDB (HARD) ─────────────────────────────────────────────
         PurchaseReceipt receipt = new PurchaseReceipt(

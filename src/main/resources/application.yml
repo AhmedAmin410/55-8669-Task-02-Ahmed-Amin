@@ -23,13 +23,18 @@ spring:
       port: 6379
       password: redispass
 
-  # ── Cassandra ──────────────────────────────────────────────
+
   cassandra:
     contact-points: localhost
     port: 9042
     local-datacenter: datacenter1
     keyspace-name: lab05ks
     schema-action: create-if-not-exists
+    request:
+      timeout: 30s
+    connection:
+      connect-timeout: 30s
+      init-query-timeout: 30s
 
   # ── Neo4j ──────────────────────────────────────────────────
   neo4j:
